@@ -164,8 +164,6 @@ class Owner(object):
                     'ctx': ctx
                 }
 
-                owner = (await self.bot.application_info()).owner
-
                 env.update(globals())
                 _code = ''.join(code).replace('```python', '').replace('```', '')
                 try:
@@ -183,7 +181,7 @@ class Owner(object):
                     msg = discord.Embed(color=0xff0000, description=f"\n:inbox_tray: Входные данные:\n```python\n{''.join(code).replace('```python', '').replace('```', '')}\n```\n:outbox_tray: Выходные данные:\n```python\n{value}{traceback.format_exc()}```".replace(self.bot.http.token, '•' * len(self.bot.http.token)))
                     msg.set_author(name='Интерпретатор Python кода.')
                     msg.set_footer(text=f'Интерпретация не удалась - Python {platform.python_version()} | {platform.system()}')
-                    return await ctx.send(f'{owner.mention}, смотри сюда!', embed=msg)
+                    return await ctx.send(f'{ctx.author.mention}, смотри сюда!', embed=msg)
                 else:
                     value = stdout.getvalue()
                     if function is None:
