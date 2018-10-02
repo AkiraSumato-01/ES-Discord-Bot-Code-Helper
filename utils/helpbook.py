@@ -20,4 +20,5 @@ del lst_apnd
 
 def content(tag):
     if tag.isdigit():
+        tag = available_tags[int(tag)-1]
     return io.open('info/' + tag + '.txt', 'r', encoding='utf-8').read()
