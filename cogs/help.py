@@ -76,7 +76,7 @@ class Help(object):
         else:
             for i in range(len(help_.available_tags)):
                 if help_.available_tags[i] == tag:
-                    tag_show = str(i+1) + ' ' + tag
+                    tag_show = str(int(i)+1) + ' ' + tag
 
         await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
                                            color=randint(0x000000, 0xFFFFFF),
