@@ -7,11 +7,11 @@
 mods/
 + my_mod/
   + images/
-    + bg/
-  |     + my_custom_bg.jpg <-- Наше изображение бг
+  | + bg/
+  |   + my_custom_bg.jpg <-- Наше изображение бг
   + my_everlastingsummer_mod.rpy
-
 ```
+
 Учтем, что путь к файлу относительно папки
 "Everlasting Summer/game" в данном случае таков:
 `"mods/my_mod/images/bg/my_custom_bg.jpg"`

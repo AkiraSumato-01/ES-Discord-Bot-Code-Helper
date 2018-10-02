@@ -1,3 +1,4 @@
 discord-rewrite
 asyncio
 aiohttp
+psutils

@@ -7,13 +7,13 @@
 mods/
 + my_mod/
   + images/
-    + sprites/
-  |     + my_custom_body.png <-- Наше тело спрайта
-  |     + my_custom_emo.png <-- Наша эмоция спрайта
-  |     + my_custom_clothes.png <-- Наша одежда спрайта
+  | + sprites/
+  |   + my_custom_body.png <-- Наше тело спрайта
+  |   + my_custom_emo.png <-- Наша эмоция спрайта
+  |   + my_custom_clothes.png <-- Наша одежда спрайта
   + my_everlastingsummer_mod.rpy
+```
 
-```python
 Учтем, что путь к файлу относительно папки
 "Everlasting Summer/game" в данном случае таков:
 
@@ -63,5 +63,5 @@ label my_label:
     show my custom sprite
 
     #python эквивалент вывода
-    $ renpy.show('my custom sprite ')
+    $ renpy.show('my custom sprite')
 ```

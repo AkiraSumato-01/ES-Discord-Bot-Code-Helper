@@ -16,11 +16,11 @@
     "camp_entrance" - "Ворота в лагерь"
     "forest" - "о. Лес"
 ```
-```python:
+```python
 label me_label:
     $ disable_all_zones() #выключили маркеры
     $ set_zone("estrade", "label1")
     $ set_zone("music_club", "label2")
     $ set_zone("beach", "label3")
-    $ show_map() - показывает карту
+    $ show_map() #показывает карту
 ```

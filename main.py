@@ -1,3 +1,10 @@
+# python3.6
+# coding: utf-8
+
+# Разработка AkiraSumato_01
+# Специально для Discord сервера "Создание мода | Бесконечное Лето"
+# https://discord.gg/EDh8F3F
+
 import os
 import sys
 import time
@@ -11,7 +18,10 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix='?')
 bot.remove_command('help')
 
-extensions = ['cogs.help', 'cogs.owner']
+extensions = ['cogs.help',
+              'cogs.owner',
+              'cogs.default',
+              'cogs.error_handler']
 
 if __name__ == '__main__':
     for extension in extensions:

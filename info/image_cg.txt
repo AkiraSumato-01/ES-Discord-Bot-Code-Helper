@@ -7,11 +7,11 @@
 mods/
 + my_mod/
   + images/
-    + cg/
-  |     + my_custom_cg.jpg <-- Наше изображение цг
+  | + cg/
+  |   + my_custom_cg.jpg <-- Наше изображение цг
   + my_everlastingsummer_mod.rpy
-
 ```
+
 Учтем, что путь к файлу относительно папки
 "Everlasting Summer/game" в данном случае таков:
 `"mods/my_mod/images/cg/my_custom_cg.jpg"`

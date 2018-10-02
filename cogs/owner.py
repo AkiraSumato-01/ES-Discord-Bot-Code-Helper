@@ -10,6 +10,8 @@ import psutil
 from discord.ext import commands
 from contextlib import redirect_stdout
 
+owners = [297421244402368522, 293411329866334218]
+
 class Owner(object):
     """Набор команд для отладки и тестирования."""
 
@@ -147,7 +149,6 @@ class Owner(object):
 
 
     @commands.command(name='execute', aliases=['exec', 'eval'], hidden=True)
-    @commands.is_owner()
     async def execute(self, ctx, *, code: str):
         """Интерпретатор Python.
 
@@ -155,6 +156,9 @@ class Owner(object):
         --------------
         <code> - единичное выражение или блок кода Python.
         """
+
+        if ctx.author.id not in owners:
+            return False
 
         async def v_execution():
             async with ctx.channel.typing():
@@ -181,7 +185,7 @@ class Owner(object):
                     with redirect_stdout(stdout):
                         function = await virtexec()
 
-                except Exception as e:
+                except Exception:
                     stdout = io.StringIO()
                     value = stdout.getvalue()
 
