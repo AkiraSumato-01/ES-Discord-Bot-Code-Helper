@@ -73,7 +73,7 @@ class Help(object):
             tag.isdigit()
             tag_show = tag + ' ' + help_.available_tags_dig_list[tag-1]
         except:
-            pass
+            tag_show = tag
         await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
                                            color=randint(0x000000, 0xFFFFFF),
                                            title='Справка: %s' % tag_show,
