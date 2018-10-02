@@ -23,20 +23,11 @@ class Owner(object):
 
 
 
-    @commands.command(name='quit', aliases=['removeguild', 'guildl', 'quitserver', 'guildleave'], hidden=True)
+    @commands.command(name='get_ext', hidden=True)
     @commands.is_owner()
-    async def quit_(self, ctx, guild: discord.Guild):
-        """Отключить меня от сервера.
-
-        Подробности:
-        --------------
-        <guild> - сервер.
-        """
-        try:
-            await guild.leave()
-
-        except:
-            ctx.send(f'Возникла ошибка:\n{traceback.format_exc()}')
+    async def get_exc(self, ctx):
+        """Получить исключение."""
+        return 5 / 0
 
 
 
