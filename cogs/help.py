@@ -57,7 +57,7 @@ class Help(object):
                                                                 delete_after=8)
 
         if tag not in help_.available_tags:
-            return await ctx.send(f'Доступные теги: \n{", ".join(help_.available_tags)}')
+            return await ctx.send(f'Доступные теги: \n```{"\n".join(help_.available_tags)}```')
         
         await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
                                            color=randint(0x000000, 0xFFFFFF),
