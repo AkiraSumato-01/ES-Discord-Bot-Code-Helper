@@ -16,4 +16,5 @@ def content(tag):
         tag = available_tags[int(tag) - 1]
         tag = tag.split(' ', 1)
         tag = tag[1]
+
     return io.open('info/' + tag + '.txt', 'r', encoding='utf-8').read()
