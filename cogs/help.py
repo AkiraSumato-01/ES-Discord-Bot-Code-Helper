@@ -85,7 +85,7 @@ class Help(object):
                                            ))
 
 
-    @commands.command(name='cmds', description='Список команд.')
+    @commands.command(name='buns', description='Плюшки.')
     async def buns(self, ctx):
         """Список команд."""
         if not ctx.author.permissions_in(ctx.channel).manage_messages:
