@@ -71,9 +71,11 @@ class Help(object):
                 return await ctx.send(f'Доступные теги: \n```{list_tags}```')
         try:
             tag.isdigit()
-            tag_show = tag + ' ' + help_.available_tags_dig_list[tag-1]
+            tag_show = tag + ' ' + help_.available_tags[tag-1]
         except:
-            tag_show = tag
+            for i in range(len(help_.available_tags)):
+                if help_.available_tags[i] == tag:
+                    tag_show = str(i+1) + ' ' + tag
         await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
                                            color=randint(0x000000, 0xFFFFFF),
                                            title='Справка: %s' % tag_show,
