@@ -55,8 +55,8 @@ class Help(object):
             channel = discord.utils.get(ctx.guild.channels, id=496385320644902912)
             return await ctx.send(f'Команды допущены только в канале {channel.mention}.',
                                                                 delete_after=8)
-
-        list_tags = "\n".join(help_.available_tags.sort())
+        help_.available_tags.sort()
+        list_tags = "\n".join(help_.available_tags)
 
         if tag not in help_.available_tags:
             return await ctx.send(f'Доступные теги: \n```{list_tags}```\n ```{len(help_.available_tags)}```')
