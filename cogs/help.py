@@ -8,7 +8,7 @@ from random import randint
 import utils.helpbook as help_
 
 commandlist = '''
-`?commands` - данный список команд;
+`?cmds` - данный список команд;
 `?help` - справка по коду;
 `?clear` - очистка чата;
 `?errors` - [INDEV] описание исключений;
