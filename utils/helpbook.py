@@ -14,10 +14,6 @@ for i in range(len(available_tags)):
     lst_apnd = str(i+1) + available_tags[i]
     available_tags_dig_list.append(lst_apnd)
 
-del x
-del i
-del lst_apnd
-
 def content(tag):
     if tag.isdigit():
         tag = available_tags[int(tag)-1]
