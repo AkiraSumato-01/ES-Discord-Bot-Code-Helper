@@ -34,9 +34,9 @@ if __name__ == '__main__':
 @bot.event
 async def on_ready():
     try:
-        await bot.change_presence(activity=discord.Game(name='?help', type=0))
+        await bot.change_presence(activity=discord.Game(name='?commands', type=0))
     except:
-        await bot.change_presence(game=discord.Game(name='?help', type=0))
+        await bot.change_presence(game=discord.Game(name='?commands', type=0))
     print(f'[{time.ctime()}] Подключение успешно осуществлено!\nВ сети: {bot.user}')
 
 bot.run(os.getenv('TOKEN'),
