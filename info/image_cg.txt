@@ -1,0 +1,32 @@
+Добавление кастомных изоражений в мод.
+Чтобы добавить арт (цг) в мод, нужно сначала
+найти нужное изображение. Думаю, это вполне понятно. Далее, помещаем
+файл в папку с модом.
+Например, как-то так:
+```
+mods/
++ my_mod/
+  + images/
+    + cg/
+  |     + my_custom_cg.jpg <-- Наше изображение цг
+  + my_everlastingsummer_mod.rpy
+
+```
+Учтем, что путь к файлу относительно папки
+"Everlasting Summer/game" в данном случае таков:
+`"mods/my_mod/images/cg/my_custom_cg.jpg"`
+
+Его и записываем в наш RPY-файл:
+```python
+init:
+    image cg my_cg = "mods/my_mod/images/cg/my_custom_cg.jpg"`
+```
+
+Готово. Чтобы вывести изображение, используем `show` или `scene`:
+```python
+label my_label:
+    show cg my_cg
+
+    #python эквивалент вывода
+    $ renpy.show('bg my_cg')
+```

@@ -1,0 +1,33 @@
+Добавление кастомных изоражений в мод.
+Чтобы добавить фон (бг) в мод, нужно сначала
+найти нужное изображение. Думаю, это вполне понятно. Далее, помещаем
+файл в папку с модом.
+Например, как-то так:
+```
+mods/
++ my_mod/
+  + images/
+    + bg/
+  |     + my_custom_bg.jpg <-- Наше изображение бг
+  + my_everlastingsummer_mod.rpy
+
+```
+Учтем, что путь к файлу относительно папки
+"Everlasting Summer/game" в данном случае таков:
+`"mods/my_mod/images/bg/my_custom_bg.jpg"`
+
+Его и записываем в наш RPY-файл:
+```python
+init:
+    image bg my_bg = "mods/my_mod/images/bg/my_custom_bg.jpg"
+```
+
+Готово. Чтобы вывести изображение, используем `show` или `scene`:
+```python
+label my_label:
+    scene bg my_bg
+
+    #python эквивалент вывода
+    $ renpy.scene()
+    $ renpy.show('bg my_bg')
+```

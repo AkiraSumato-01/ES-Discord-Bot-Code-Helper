@@ -1,0 +1,11 @@
+Паузы
+
+```
+label my_label:
+    #Обычная пауза в 5 секунд
+    pause(5)
+    #renpy эквивалент
+    $ renpy.pause(5, hard)
+    #5 секунд паузы с запретом пропуска
+    $ renpy.pause(5, hard = True)
+```
