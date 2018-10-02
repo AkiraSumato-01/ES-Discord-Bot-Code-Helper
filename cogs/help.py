@@ -6,11 +6,13 @@ from discord.ext import commands
 from random import randint
 
 import utils.helpbook as help_
+import io
 
 commandlist = '''
 `?cmds` - данный список команд;
 `?help` - справка по коду;
 `?clear` - очистка чата;
+`?buns` - плюшки;
 `?errors` - [INDEV] описание исключений;
 '''
 
