@@ -11,7 +11,7 @@ available_tags.sort()
 available_tags_dig_list = list()
 
 for i in range(len(available_tags)):
-    lst_apnd = str(i+1) + available_tags[i]
+    lst_apnd = str(i+1) + ' ' + available_tags[i]
     available_tags_dig_list.append(lst_apnd)
 
 def content(tag):

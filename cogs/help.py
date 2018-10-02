@@ -58,7 +58,7 @@ class Help(object):
 
         list_tags = "\n".join(help_.available_tags_dig_list)
 
-        if tag not in help_.available_tags:
+        if tag not in help_.available_tags or tag.isdigit():
             return await ctx.send(f'Доступные теги: \n```{list_tags}```')
         
         await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
