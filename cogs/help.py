@@ -70,7 +70,7 @@ class Help(object):
             else:
                 return await ctx.send(f'Доступные теги: \n```{list_tags}```')
 
-        if tag.isdigit()
+        if tag.isdigit():
             tag_show = tag + ' ' + help_.available_tags[tag-1]
 
         else:
