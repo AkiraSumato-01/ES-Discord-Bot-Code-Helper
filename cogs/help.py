@@ -21,9 +21,8 @@ class Help(object):
         self.bot = bot
 
 
-    @commands.command(name='commands', description='Список команд.')
-    @commands.guild_only()
-    async def commands(self, ctx):
+    @commands.command(name='cmds', description='Список команд.')
+    async def cmds(self, ctx):
         """Список команд."""
         if ctx.channel.id != 496385320644902912 and ctx.channel.id != 496630762536435725:
             channel = discord.utils.get(ctx.guild.channels, id=496385320644902912)
@@ -37,9 +36,8 @@ class Help(object):
                                            ))
 
 
-    @commands.command(name='errors', description='Помощь по коду.')
-    @commands.guild_only()
-    async def errors(self, ctx, tag: str = None):
+    @commands.command(name='errors', description='Описание исключений.')
+    async def errors_(self, ctx):
         """Описание исключений."""
         if ctx.channel.id != 496385320644902912 and ctx.channel.id != 496630762536435725:
             channel = discord.utils.get(
@@ -51,7 +49,6 @@ class Help(object):
 
 
     @commands.command(name='help', description='Помощь по коду.')
-    @commands.guild_only()
     async def help(self, ctx, tag: str = None):
         """Помощь по коду."""
         if ctx.channel.id != 496385320644902912 and ctx.channel.id != 496630762536435725:
