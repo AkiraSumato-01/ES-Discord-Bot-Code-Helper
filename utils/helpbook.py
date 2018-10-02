@@ -12,6 +12,6 @@ for i in range(len(available_tags)):
     available_tags[i] =str(i+1) +' '+ available_tags[i]
 
 def content(tag):
-    if tag.isdigit:
+    if tag.isdigit():
         tag = available_tags[int(tag) - 1]
     return io.open('info/' + tag + '.txt', 'r', encoding='utf-8').read()
