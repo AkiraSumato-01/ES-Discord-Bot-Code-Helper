@@ -57,8 +57,7 @@ class Help(object):
                                                                 delete_after=8)
 
         list_tags = "\n".join(help_.available_tags)
-		tag = tag.split(' ', 1)
-        tag = tag[1]
+
         if tag not in help_.available_tags:
             return await ctx.send(f'Доступные теги: \n```{list_tags}```')
         
