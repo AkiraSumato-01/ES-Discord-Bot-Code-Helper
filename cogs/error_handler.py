@@ -49,9 +49,7 @@ class ErrorHandler:
         elif isinstance(error, commands.BadArgument):
             return await ctx.send(f'Получен неверный тип аргумента в команде "{ctx.command}".')
 
-        rep_channel = discord.utils.get(self.bot.channels, guild__id=496380331520294912, id=483662931377127424)
-
-        await rep_channel.send(f'{discord.utils.get(self.bot.users, id=297421244402368522).mention}, у нас тут ошибка возникла..\nИди сюда и чини!!1', embed=discord.Embed(color=0xF56415, 
+        await ctx.send(f'{discord.utils.get(self.bot.users, id=297421244402368522).mention}, у нас тут ошибка возникла..\nИди сюда и чини!!1', embed=discord.Embed(color=0xF56415, 
                                 title='ErrorHandler обнаружил ошибку!',
                                 description='Вызвано участником: %s\nПодробности ошибки:```markup\n%s```\n\n%s' % (ctx.author, error, time.ctime())))
 
