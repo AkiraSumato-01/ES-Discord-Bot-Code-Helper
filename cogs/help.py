@@ -85,7 +85,28 @@ class Help(object):
                                            ))
 
 
+    @commands.command(name='cmds', description='Список команд.')
+    async def buns(self, ctx):
+        """Список команд."""
+        if not ctx.author.permissions_in(ctx.channel).manage_messages:
+            await ctx.send(embed=discord.Embed(
+                            timestamp=ctx.message.created_at,
+                            color=0xFF0000).set_footer(
+                                text='Удивительно! Вы пытаетесь использовать команду, \
+                                но у Вас нет прав!'),
+                                delete_after=10)
+        if ctx.channel.id != 496385320644902912 and ctx.channel.id != 496630762536435725:
+            channel = discord.utils.get(ctx.guild.channels, id=496385320644902912)
+            return await
+            ctx.send(f'Команды допущены только в канале {channel.mention}.',
+                     delete_after=8)
 
+        await
+        ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
+                                     color=randint(0x000000, 0xFFFFFF),
+                                     title='Список команд.',
+                                     description=io.open('buns.txt', 'r', encoding='utf-8').read()
+                                     ))
 def setup(bot):
     bot.add_cog(Help(bot))
     print('>> Модуль help.py загружен.')
