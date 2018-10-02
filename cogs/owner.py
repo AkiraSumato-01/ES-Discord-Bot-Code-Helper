@@ -190,12 +190,12 @@ class Owner(object):
                         success_msg = discord.Embed(color=0x00ff00, description=f":inbox_tray: Входные данные:\n```python\n{''.join(code).replace('```python', '').replace('```', '')}```\n\n:outbox_tray: Выходные данные:\n```python\n{value}```".replace(self.bot.http.token, '•' * len(self.bot.http.token)))
                         success_msg.set_author(name='Интерпретатор Python кода.')
                         success_msg.set_footer(text=f'Интерпретация успешно завершена - Python {platform.python_version()} | {platform.system()}')
-                        return await ctx.send(f'{owner.mention}, смотри сюда!', embed=success_msg)
+                        return await ctx.send(f'{ctx.author.mention}, смотри сюда!', embed=success_msg)
                     else:
                         success_msg = discord.Embed(color=0x00ff00, description=f":inbox_tray: Входные данные:\n```python\n{''.join(code).replace('```python', '').replace('```', '')}```\n\n:outbox_tray: Выходные данные:\n```python\n{value}{function}```".replace(self.bot.http.token, '•' * len(self.bot.http.token)))
                         success_msg.set_author(name='Интерпретатор Python кода.')
                         success_msg.set_footer(text=f'Интерпретация успешно завершена - Python {platform.python_version()} | {platform.system()}')
-                        return await ctx.send(f'{owner.mention}, смотри сюда!', embed=success_msg)
+                        return await ctx.send(f'{ctx.author.mention}, смотри сюда!', embed=success_msg)
 
         self.bot.loop.create_task(v_execution())
 
