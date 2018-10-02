@@ -57,9 +57,8 @@ class Help(object):
                                                                 delete_after=8)
 
         list_tags = "\n".join(help_.available_tags)
-        tag_2 = tag.split(' ', 1)
-        tag_2 = tag_2[1]
-        if tag_2 not in help_.available_tags:
+
+        if tag not in help_.available_tags:
             return await ctx.send(f'Доступные теги: \n```{list_tags}```')
         
         await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
