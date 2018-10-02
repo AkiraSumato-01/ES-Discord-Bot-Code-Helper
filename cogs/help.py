@@ -101,10 +101,9 @@ class Help(object):
             ctx.send(f'Команды допущены только в канале {channel.mention}.',
                      delete_after=8)
 
-        await
-        ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
+        await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
                                      color=randint(0x000000, 0xFFFFFF),
-                                     title='Список команд.',
+                                     title='Плюшки.',
                                      description=io.open('buns.txt', 'r', encoding='utf-8').read()
                                      ))
 def setup(bot):
