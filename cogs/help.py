@@ -6,12 +6,14 @@ from discord.ext import commands
 from random import randint
 
 import utils.helpbook as help_
+import io
 
 commandlist = '''
 `?cmds` - данный список команд;
-`?help` - справка по коду;
-`?clear` - очистка чата;
-`?errors` - [INDEV] описание исключений;
+`?help [тег]` - справка по коду;
+`?clear [кол-во сообщений]` - очистка чата;
+`?buns` - плюшки;
+`?hastebin [код]` - опубликовать код на hastebin.com;
 '''
 
 class Help(object):
@@ -56,19 +58,54 @@ class Help(object):
             return await ctx.send(f'Команды допущены только в канале {channel.mention}.',
                                                                 delete_after=8)
 
-        list_tags = "\n".join(help_.available_tags)
+        list_tags = "\n".join(help_.available_tags_dig_list)
+        if tag not in help_.available_tags or tag.isdigit() or tag == None:
+            if tag == None:
+                return await ctx.send(f'Доступные теги: \n```{list_tags}```')
+            if tag.isdigit():
+                try:
+                    help_.available_tags_dig_list[int(tag)]
 
-        if tag not in help_.available_tags:
-            return await ctx.send(f'Доступные теги: \n```{list_tags}```\n\n{len(help_.available_tags)}')
-        
+                except:
+                    return await ctx.send(f'Доступные теги: \n```{list_tags}```')
+            else:
+                return await ctx.send(f'Доступные теги: \n```{list_tags}```')
+
+        if tag.isdigit():
+            tag_show = tag + ' ' + help_.available_tags[int(tag)-1]
+
+        else:
+            for i in range(len(help_.available_tags)):
+                if help_.available_tags[i] == tag:
+                    tag_show = str(i+1) + ' ' + tag
+
         await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
                                            color=randint(0x000000, 0xFFFFFF),
-                                           title='Справка: %s' % tag,
+                                           title='Справка: %s' % tag_show,
                                            description=help_.content(tag)
                                            ))
 
 
+    @commands.command(name='buns', description='Плюшки.')
+    async def buns(self, ctx):
+        """Плюшки."""
+        if not ctx.author.permissions_in(ctx.channel).manage_messages:
+            await ctx.send(embed=discord.Embed(
+                            timestamp=ctx.message.created_at,
+                            color=0xFF0000).set_footer(
+                                text='Удивительно! Вы пытаетесь использовать команду, \
+                                но у Вас нет прав!'),
+                                delete_after=10)
+        if ctx.channel.id != 496385320644902912 and ctx.channel.id != 496630762536435725:
+            channel = discord.utils.get(ctx.guild.channels, id=496385320644902912)
+            return await ctx.send(f'Команды допущены только в канале {channel.mention}.',
+                     delete_after=8)
 
+        await ctx.send(embed=discord.Embed(timestamp=ctx.message.created_at,
+                                     color=randint(0x000000, 0xFFFFFF),
+                                     title='Плюшки.',
+                                     description=io.open('buns.txt', 'r', encoding='utf-8').read()
+                                     ))
 def setup(bot):
     bot.add_cog(Help(bot))
     print('>> Модуль help.py загружен.')
