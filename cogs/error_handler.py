@@ -49,6 +49,7 @@ class ErrorHandler:
         elif isinstance(error, commands.BadArgument):
             return await ctx.send(f'Получен неверный тип аргумента в команде "{ctx.command}".')
 
+<<<<<<< HEAD
         await ctx.send(f'{discord.utils.get(ctx.guild.roles, id=497043277292371969).mention}, возникло исключение...',
             embed=discord.Embed(
                 timestamp=ctx.message.created_at,
@@ -56,6 +57,13 @@ class ErrorHandler:
                 title='ErrorHandler обнаружил ошибку!',
                 description=f'Вызвано участником: {ctx.author}\nПодробности ошибки:```python\n{traceback.format_exc()}```\n```python\n{type(error).__name__}: {error}```')
             )
+=======
+        await ctx.send(f'{discord.utils.get(self.bot.users, id=297421244402368522).mention}, у нас тут ошибка возникла..\nИди сюда и чини!!1', embed=discord.Embed(
+                                timestamp=ctx.message.created_at,
+                                color=0xF56415, 
+                                title='ErrorHandler обнаружил ошибку!',
+                                description=f'Вызвано участником: {ctx.author}\nПодробности ошибки:```markup\n{type(error).__name__}: {error}```'))
+>>>>>>> 0bd0c02630fc504947d0ad2780d1b581c079d295
 
 
 
