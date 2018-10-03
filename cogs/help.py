@@ -10,17 +10,10 @@ import io
 
 commandlist = '''
 `?cmds` - данный список команд;
-<<<<<<< HEAD
 `?help [тег]` - справка по коду;
 `?clear [кол-во сообщений]` - очистка чата;
 `?buns` - плюшки;
 `?hastebin [код]` - опубликовать код на hastebin.com;
-=======
-`?help` - справка по коду;
-`?clear` - очистка чата;
-`?buns` - плюшки;
-`?errors` - [INDEV] описание исключений;
->>>>>>> 0bd0c02630fc504947d0ad2780d1b581c079d295
 '''
 
 class Help(object):
@@ -66,11 +59,8 @@ class Help(object):
                                                                 delete_after=8)
 
         list_tags = "\n".join(help_.available_tags_dig_list)
-<<<<<<< HEAD
-=======
 
->>>>>>> 0bd0c02630fc504947d0ad2780d1b581c079d295
-        if tag not in help_.available_tags or tag.isdigit() or tag == None:
+        if tag not in help_.available_tags or tag.isdigit() or tag is None:
             if tag == None:
                 return await ctx.send(f'Доступные теги: \n```{list_tags}```')
             if tag.isdigit():
@@ -99,11 +89,7 @@ class Help(object):
 
     @commands.command(name='buns', description='Плюшки.')
     async def buns(self, ctx):
-<<<<<<< HEAD
         """Плюшки."""
-=======
-        """Список команд."""
->>>>>>> 0bd0c02630fc504947d0ad2780d1b581c079d295
         if not ctx.author.permissions_in(ctx.channel).manage_messages:
             await ctx.send(embed=discord.Embed(
                             timestamp=ctx.message.created_at,
