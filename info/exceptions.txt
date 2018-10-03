@@ -1,0 +1,29 @@
+Во время выполнения кода нередко могут возникать ошибки (исключения).
+Вот описание некоторых исключений Python:
+
+```python
+AttributeError - объект не имеет данного атрибута (значения или метода).
+ImportError - не удалось импортирование модуля.
+IndexError - индекс не входит в диапазон элементов.
+KeyError - несуществующий ключ (в словаре, множестве или другом объекте).
+MemoryError - недостаточно памяти.
+NameError - не найдено переменной с таким именем.
+UnboundLocalError - сделана ссылка на локальную переменную в функции, но переменная не определена ранее.
+FileExistsError - попытка создания файла или директории, которая уже существует.
+FileNotFoundError - файл или директория не существует.
+IsADirectoryError - ожидался файл, но это директория.
+NotADirectoryError - ожидалась директория, но это файл.
+PermissionError - не хватает прав доступа.
+SyntaxError - синтаксическая ошибка.
+IndentationError - ошибка в отступах.
+TabError - смешивание в отступах табуляции и пробелов.
+TypeError - операция применена к объекту несоответствующего типа.
+ValueError - дан аргумент правильного типа, но неверного значения.
+UnicodeError - ошибка кодирования / декодирования unicode в строках.
+UnicodeEncodeError - ошибка кодирования unicode.
+UnicodeDecodeError - ошибка декодирования unicode.
+UnicodeTranslateError - ошибка перевода unicode.
+RuntimeError - возникает, когда исключение не попадает ни под одну из других категорий.
+```
+
+Подробнее об исключениях [тут](https://pythonworld.ru/tipy-dannyx-v-python/isklyucheniya-v-python-konstrukciya-try-except-dlya-obrabotki-isklyuchenij.html).
