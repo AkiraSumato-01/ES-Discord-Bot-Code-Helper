@@ -23,11 +23,11 @@ class Owner(object):
 
 
 
-    @commands.command(name='get_ext', hidden=True)
+    @commands.command(name='get_exc', hidden=True)
     @commands.is_owner()
     async def get_exc(self, ctx):
         """Получить исключение."""
-        return 5 / 0
+        raise RuntimeError('Вызвано разработчиком.')
 
 
 
@@ -36,7 +36,6 @@ class Owner(object):
 
 
     @commands.command(name='ping', hidden=True)
-    @commands.is_owner()
     async def ping(self, ctx):
         """Проверка скорости ответа.
 
@@ -44,6 +43,9 @@ class Owner(object):
         --------------
         Аргументы не требуются.
         """
+
+        if ctx.author.id not in owners:
+            return False
 
         resp = await ctx.send('Тестируем...')
         diff = resp.created_at - ctx.message.created_at
@@ -55,7 +57,6 @@ class Owner(object):
 
 
     @commands.command(hidden=True, aliases=['r'])
-    @commands.is_owner()
     async def restart(self, ctx):
         """Перезагрузка.
 
@@ -63,6 +64,9 @@ class Owner(object):
         --------------
         Аргументы не требуются.
         """
+
+        if ctx.author.id not in owners:
+            return False
 
         await ctx.send(embed=discord.Embed(color=0x13CFEB).set_footer(text="Перезагружаемся..."))
         os.execl(sys.executable, sys.executable, * sys.argv)
