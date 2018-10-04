@@ -7,8 +7,8 @@ label my_label:
     pause(5)
 
     #renpy эквивалент
-    $ renpy.pause(5, hard)
+    $ renpy.pause(5, hard=False)
 
     #5 секунд паузы с запретом пропуска
-    $ renpy.pause(5, hard = True)
+    $ renpy.pause(5, hard=True)
 ```
