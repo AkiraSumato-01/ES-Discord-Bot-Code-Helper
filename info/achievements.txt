@@ -10,15 +10,18 @@ $ preffix_get_achivment('имя файла изображения без рас�
 ```
 ```python
 init python:
-    preffix_ach_folder = 'mods/my_mod/'
+    preffix_ach_folder = 'mods/test_ach/'
+    if preffix_ach_folder.endswith(preffix_ach_folder) != '/':
+        preffix_ach_folder += '/'
     preffix_len_ach_folder = len(preffix_ach_folder)
 
     if persistent.preffix_ach == None:
         persistent.preffix_ach = dict()
 
-        for file in renpy.list_files():
-            if i.startswith(preffix_ach_folder):
-                renpy.image(file[preffix_len_ach_folder:-4], file)
+    for file in renpy.list_files():
+        if file.startswith(preffix_ach_folder):
+            renpy.image(file[preffix_len_ach_folder:-4], file)
+            if file[preffix_len_ach_folder:-4] not in persistent.preffix_ach.keys():
                 persistent.preffix_ach[file[preffix_len_ach_folder:-4]] = False
 
     def preffix_get_achievement(ach):
