@@ -1,0 +1,37 @@
+Ачивки.
+
+Копируем, меняем `preffix` на префикс своего мода
+(не забываем вместо `preffix_get_achievement_atl` поставить свою ATL анимацию для ачивки)
+Меняем `preffix_ach_folder` на путь до папки с изображениями ачивок
+
+Вызов:
+```python
+$ preffix_get_achivment('имя файла изображения без расширения')
+```
+```python
+init python:
+    preffix_ach_folder = 'mods/my_mod/' 
+    preffix_len_ach_folder = len(preffix_ach_folder)
+
+    if persistent.preffix_ach == None:
+        persistent.preffix_ach = dict()
+
+    for file in renpy.list_file()
+        if i.startswitch(preffix_ach_folder):
+            renpy.image(file[preffix_len_ach_folder:-4], file)
+            persistent.preffix_ach[file[preffix_len_ach_folder:-4]] = False
+
+    def preffix_get_achievement(ach):
+        if persistent.preffix_ach[ach] == False:
+            persistent.preffix_ach[ach] = True 
+            renpy.play(sfx_achievement, channel = 'sound')
+        renpy.show('preffix_ach_' + ach, [preffix_get_achievement_atl])
+        renpy.pause(7.5)
+        renpy.hide('preffix_ach_' + ach)
+        
+    # хз будет ли работать
+    del preffix_ach_folder
+    del preffix_len_ach_folder
+```
+**Часть кода взята из БКРР**
+**Зы работоспособность не проверял, но работать должно**
