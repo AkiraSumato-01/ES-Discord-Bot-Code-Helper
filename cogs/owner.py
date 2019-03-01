@@ -124,7 +124,7 @@ class Owner(object):
                               f'▫ Загрузка: {round(psutil.cpu_percent())}%\n'
                               f'▫ Загрузка ботом: {round(py.cpu_percent())}%')
         embed.add_field(name='Оператива:',
-                        value=f'▫ Объем: {psutil.virtual_memory().total\n'
+                        value=f'▫ Объем: {psutil.virtual_memory().total}\n'
                               f'▫ Загрузка: {round(psutil.virtual_memory().percent)}%\n'
                               f'▫ Загрузка ботом: {round(py.memory_percent())}%')
         embed.add_field(name='Текущий модуль:',
