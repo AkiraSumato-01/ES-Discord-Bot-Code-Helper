@@ -353,12 +353,7 @@ class Owner(object):
         [EN] Bash terminal (now async!)
         """
 
-        loading = discord.utils.get(discord.utils.get(self.bot.guilds,
-                                    id=347635213670678528).emojis,
-                                    id=525602942242390046)
-
-        await ctx.message.add_reaction(loading)
-
+        
         async with ctx.channel.typing():
             code_strings = code.replace('```python', '') \
                             .replace('```bash', '') \
@@ -392,9 +387,7 @@ class Owner(object):
                     await ctx.send(f'Мне не удалось отправить ответ в чат... И на Hastebin тоже... Извиняюсь!')
                 else:
                     await ctx.send(f'Мне не удалось отправить ответ в чат.\nОн здесь >> {content}')
-            
-            await ctx.message.remove_reaction(loading, self.bot.user)
-
+        
     @commands.command(name='add-cog', hidden=True, aliases=['+cog'])
     @owner()
     async def add_cog(self, ctx):
@@ -433,11 +426,7 @@ class Owner(object):
         [EN] Python interpreter
         """
 
-        loading = discord.utils.get(discord.utils.get(self.bot.guilds,
-                                    id=347635213670678528).emojis,
-                                    id=525602942242390046)
-
-        await ctx.message.add_reaction(loading)
+   
 
         async def v_execution():
             async with ctx.channel.typing():
@@ -501,7 +490,6 @@ class Owner(object):
                             try:
                                 content = await post(value)
                             except:
-                                await ctx.message.remove_reaction(loading, self.bot.user)
                                 return await ctx.send(f'Мне не удалось отправить ответ в чат... И на Hastebin тоже... Извиняюсь!')
                             await ctx.message.remove_reaction(loading, self.bot.user)
                             return await ctx.send('<:naomi_tick_yes:525026013663723540> Все выполнено, но у меня не получается отправить результат сюда...\n'
@@ -512,13 +500,11 @@ class Owner(object):
                             success_msg.add_field(name='<:naomi_tick_yes:525026013663723540> Интерпретатор Python:',
                                                   value=f"```python\n{value}{function}```".replace(self.bot.http.token, '••••••••••'))
                             success_msg.set_footer(text=f'Интерпретация успешно завершена - Python {platform.python_version()} | {platform.system()}')
-                            await ctx.message.remove_reaction(loading, self.bot.user)
                             return await ctx.send(f'{ctx.author.mention}, вот! Я все выполнила c:', embed=success_msg)
                         except:
                             try:
                                 content = await post(f'{value}{function}')
                             except:
-                                await ctx.message.remove_reaction(loading, self.bot.user)
                                 return await ctx.send(f'Мне не удалось отправить ответ в чат... И на Hastebin тоже... Извиняюсь!')
                             await ctx.message.remove_reaction(loading, self.bot.user)
                             return await ctx.send('<:naomi_tick_yes:525026013663723540> Интерпретация прошла успешно, но, я не могу отправить результат в чат...\n'
