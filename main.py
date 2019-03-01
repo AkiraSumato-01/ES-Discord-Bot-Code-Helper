@@ -18,7 +18,7 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix='?')
 bot.remove_command('help')
 
-extensions = ['cogs.help',
+extensions = ['cogs.help', 'cogs.emergency',
               'cogs.owner',
               'cogs.default',
               'cogs.error_handler']
