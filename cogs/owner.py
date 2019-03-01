@@ -249,8 +249,7 @@ class Owner(object):
             try:
                 await ctx.send(f'{ctx.author.mention}, получен ответ!', embed=embed)
             except:
-                try:
-                    await ctx.send(f'Мне не удалось отправить ответ в чат.')
+                await ctx.send(f'Мне не удалось отправить ответ в чат.')
 
     @commands.command(name='add-cog', hidden=True, aliases=['+cog'])
     @owner()
