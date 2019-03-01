@@ -13,7 +13,7 @@ from discord.ext import commands
 
 from checks import *
 
-class Emergency(commands.Cog, name='Emergency'):
+class Emergency(object):
     def __init__(self, bot):
         self.bot = bot
     

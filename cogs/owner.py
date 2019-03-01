@@ -11,7 +11,6 @@ import platform
 import sys
 import textwrap
 import traceback
-import humanize
 import psutil
 import json
 from contextlib import redirect_stdout
@@ -24,19 +23,6 @@ from checks import *
 class Owner(object):
     def __init__(self, bot):
         self.bot = bot
-
-
-    @commands.command('uptime', hidden=True)
-    @owner()
-    async def uptime(self, ctx):
-        bot_upt = self.bot.started_at
-        host_upt = os.popen('uptime').read()
-        embed = discord.Embed(color=randint(0x000000, 0xFFFFFF))
-        embed.add_field(name='%s | %s uptime:' % (self.bot.yes, self.bot.user.name),
-                        value='Launched %s' % humanize.naturaltime(bot_upt))
-        embed.add_field(name='%s | Host uptime:' % self.bot.yes,
-                        value='```bash\n%s```' % host_upt)
-        await ctx.send(embed=embed)
 
 
     @commands.command('for', hidden=True, aliases=['cmdfor'])
